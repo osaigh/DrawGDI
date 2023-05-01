@@ -95,7 +95,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         apt = new POINT[1];
         apt[0].x = LOWORD(lParam);
         apt[0].y = HIWORD(lParam);
-       
+        InvalidateRect(hwnd, NULL, true);
     }
     return 0;
 
@@ -135,7 +135,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
             SelectObject(hdc, GetStockObject(BLACK_PEN));
             DrawPolyline(hdc, apt, cpt);
             ReleaseDC(hwnd, hdc);
-
+            
         }
         return 0;
 
